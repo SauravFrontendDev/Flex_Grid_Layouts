@@ -24,6 +24,25 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+h2 {
+  margin-block: 2rem;
 }
 
 body {
@@ -43,14 +62,67 @@ section h2 {
   font-size: 2.5rem;
 }
 
+figure {
+  max-height: 400px;
+  position: relative;
+  overflow: hidden;
+  border: 10px solid var(--color7);
+  border-radius: 5px;
+}
+
+figcaption {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  padding: 15px;
+  bottom: 0;
+  left: 0;
+  opacity: 0.78;
+  font-size: 2rem;
+  color: black;
+  text-align: center;
+}
+.flex__container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.fig--1 {
+  border-color: var(--color7);
+}
+.fig--2 {
+  border-color: var(--color2);
+}
+.fig--3 {
+  border-color: var(--color6);
+}
+.fig--4 {
+  border-color: var(--color8);
+}
+.fig--5 {
+  border-color: var(--color4);
+}
+.fig--6 {
+  border-color: var(--color3);
+}
 /* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
 
 /* At this breakpoint, transition to 2 figures per line */
 
 @media (min-width: 550px) {
+  .flex__container {
+    flex-flow: row wrap;
+  }
+  .flex__container li {
+    flex-basis: 48%;
+  }
 }
 
 /* At this breakpoint, transition to 3 figures per line */
 
 @media (min-width: 800px) {
+  .flex__container li {
+    flex-basis: 32%;
+  }
 }
